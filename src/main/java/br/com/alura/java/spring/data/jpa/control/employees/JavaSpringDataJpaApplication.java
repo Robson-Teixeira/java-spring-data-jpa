@@ -30,7 +30,7 @@ public class JavaSpringDataJpaApplication implements CommandLineRunner {
 		while (system) {
 			System.out.println("Escolha a ação:");
 			System.out.println("0 - Sair");
-			System.out.println("1 - Salvar");
+			System.out.println("1 - Cargo");
 
 			int action = scanner.nextInt();
 
