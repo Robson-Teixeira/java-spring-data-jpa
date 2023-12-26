@@ -1,4 +1,4 @@
-package br.com.alura.java.spring.data.jpa;
+package br.com.alura.java.spring.data.jpa.control.employees;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package br.com.alura.java.spring.data.jpa.orm;
+package br.com.alura.java.spring.data.jpa.control.employees.orm;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

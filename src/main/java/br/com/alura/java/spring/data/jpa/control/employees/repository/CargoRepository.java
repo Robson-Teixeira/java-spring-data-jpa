@@ -1,9 +1,9 @@
-package br.com.alura.java.spring.data.jpa.repository;
+package br.com.alura.java.spring.data.jpa.control.employees.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.alura.java.spring.data.jpa.orm.Cargo;
+import br.com.alura.java.spring.data.jpa.control.employees.orm.Cargo;
 
 @Repository
 public interface CargoRepository extends CrudRepository<Cargo, Integer> {

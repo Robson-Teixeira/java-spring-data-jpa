@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.alura</groupId>
-	<artifactId>java-spring-data-jpa</artifactId>
+	<artifactId>java-spring-data-jpa-control-employees</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>java-spring-data-jpa</name>
+	<name>java-spring-data-jpa-control-employees</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>

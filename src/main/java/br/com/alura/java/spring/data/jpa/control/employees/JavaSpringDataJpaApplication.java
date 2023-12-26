@@ -1,11 +1,11 @@
-package br.com.alura.java.spring.data.jpa;
+package br.com.alura.java.spring.data.jpa.control.employees;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.com.alura.java.spring.data.jpa.orm.Cargo;
-import br.com.alura.java.spring.data.jpa.repository.CargoRepository;
+import br.com.alura.java.spring.data.jpa.control.employees.orm.Cargo;
+import br.com.alura.java.spring.data.jpa.control.employees.repository.CargoRepository;
 
 @SpringBootApplication
 public class JavaSpringDataJpaApplication implements CommandLineRunner {
