@@ -1,19 +1,21 @@
 package br.com.alura.java.spring.data.jpa.control.employees;
 
+import java.util.Scanner;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.com.alura.java.spring.data.jpa.control.employees.orm.Cargo;
-import br.com.alura.java.spring.data.jpa.control.employees.repository.CargoRepository;
+import br.com.alura.java.spring.data.jpa.control.employees.service.CrudCargoService;
 
 @SpringBootApplication
 public class JavaSpringDataJpaApplication implements CommandLineRunner {
 
-	private final CargoRepository cargoRepository;
+	private final CrudCargoService crudCargoService;
+	private Boolean system = true;
 
-	public JavaSpringDataJpaApplication(CargoRepository cargoRepository) {
-		this.cargoRepository = cargoRepository;
+	public JavaSpringDataJpaApplication(CrudCargoService crudCargoService) {
+		this.crudCargoService = crudCargoService;
 	}
 
 	public static void main(String[] args) {
@@ -23,9 +25,21 @@ public class JavaSpringDataJpaApplication implements CommandLineRunner {
 	@Override
 	// Método da CommandLineRunner executado após o método main
 	public void run(String... args) throws Exception {
-		Cargo cargo = new Cargo();
-		cargo.setDescricao("Desenvolvedor de Software");
-		cargoRepository.save(cargo);
+		Scanner scanner = new Scanner(System.in);
+
+		while (system) {
+			System.out.println("Escolha a ação:");
+			System.out.println("0 - Sair");
+			System.out.println("1 - Salvar");
+
+			int action = scanner.nextInt();
+
+			if (action == 1)
+				crudCargoService.inicial(scanner);
+			else
+				system = false;
+		}
+
 	}
 
 }
