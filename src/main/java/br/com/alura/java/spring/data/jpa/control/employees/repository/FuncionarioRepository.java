@@ -23,7 +23,7 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Integ
 	// Ou
 	List<Funcionario> findByCargoDescricao(String descricao);
 
-	@Query("SELECT f FROM Funcionario f JOIN f.unidadeTrabalhos u WHERE u.descricao = :descricao")
+	@Query("SELECT f FROM Funcionario f JOIN f.unidadesTrabalho u WHERE u.descricao = :descricao")
 	// Ou
 	List<Funcionario> findByUnidadeTrabalhos_Descricao(String descricao);
 }
