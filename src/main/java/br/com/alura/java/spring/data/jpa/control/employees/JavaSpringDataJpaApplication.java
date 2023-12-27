@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import br.com.alura.java.spring.data.jpa.control.employees.service.CrudCargoService;
 import br.com.alura.java.spring.data.jpa.control.employees.service.CrudFuncionarioService;
 import br.com.alura.java.spring.data.jpa.control.employees.service.CrudUnidadeTrabalhoService;
+import br.com.alura.java.spring.data.jpa.control.employees.service.RelatorioService;
 
 @SpringBootApplication
 public class JavaSpringDataJpaApplication implements CommandLineRunner {
@@ -16,13 +17,16 @@ public class JavaSpringDataJpaApplication implements CommandLineRunner {
 	private final CrudCargoService crudCargoService;
 	private final CrudUnidadeTrabalhoService crudUnidadeTrabalhoService;
 	private final CrudFuncionarioService crudFuncionarioService;
+	private final RelatorioService relatorioService;
 	private Boolean system = true;
 
 	public JavaSpringDataJpaApplication(CrudCargoService crudCargoService,
-			CrudUnidadeTrabalhoService crudUnidadeTrabalhoService, CrudFuncionarioService crudFuncionarioService) {
+			CrudUnidadeTrabalhoService crudUnidadeTrabalhoService, CrudFuncionarioService crudFuncionarioService,
+			RelatorioService relatorioService) {
 		this.crudCargoService = crudCargoService;
 		this.crudUnidadeTrabalhoService = crudUnidadeTrabalhoService;
 		this.crudFuncionarioService = crudFuncionarioService;
+		this.relatorioService = relatorioService;
 	}
 
 	public static void main(String[] args) {
@@ -40,6 +44,7 @@ public class JavaSpringDataJpaApplication implements CommandLineRunner {
 			System.out.println("1 - Cargo");
 			System.out.println("2 - Unidade Trabalho");
 			System.out.println("3 - Funcionário");
+			System.out.println("4 - Relatórios");
 
 			int action = scanner.nextInt();
 
@@ -53,6 +58,9 @@ public class JavaSpringDataJpaApplication implements CommandLineRunner {
 			case 3:
 				crudFuncionarioService.inicial(scanner);
 				break;
+			case 4:
+				relatorioService.inicial(scanner);
+				break;				
 			default:
 				system = false;
 			}
