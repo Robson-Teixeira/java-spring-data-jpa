@@ -10,6 +10,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.alura.java.spring.data.jpa.control.employees.orm.Funcionario;
+import br.com.alura.java.spring.data.jpa.control.employees.orm.FuncionarioProjecao;
 
 @Repository
 public interface FuncionarioRepository extends CrudRepository<Funcionario, Integer>, 
@@ -35,4 +36,8 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Integ
 	@Query(value = "SELECT * FROM funcionarios f WHERE f.datacontratacao >= :datacontratacao", 
 			nativeQuery = true)
 	List<Funcionario> findDataContratacaoMaior(LocalDate datacontratacao);
+
+	@Query(value = "SELECT f.id, f.nome, f.salario FROM funcionarios f", 
+			nativeQuery = true)
+	List<FuncionarioProjecao> findFuncionarioSalario();
 }
