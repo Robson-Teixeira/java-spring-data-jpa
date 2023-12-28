@@ -3,6 +3,7 @@ package br.com.alura.java.spring.data.jpa.control.employees.repository;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -14,6 +15,8 @@ import br.com.alura.java.spring.data.jpa.control.employees.orm.Funcionario;
 public interface FuncionarioRepository extends CrudRepository<Funcionario, Integer>, 
 		PagingAndSortingRepository<Funcionario, Integer> {
 	List<Funcionario> findByNome(String nome);
+
+	List<Funcionario> findByNome(String nome, Pageable pageable);
 
 	// List<Funcionario> findByNomeAndSalarioGreaterThanAndDataContratacao(String nome, Double salario, LocalDate data);
 	// Ou
