@@ -28,6 +28,7 @@ public class RelatorioService {
 			System.out.println("0 - Sair");
 			System.out.println("1 - Busca funcionário por nome");
 			System.out.println("2 - Busca funcionário por nome, salário maior e data contratação");
+			System.out.println("3 - Busca funcionário data contratação maior");
 
 			int action = scanner.nextInt();
 
@@ -37,6 +38,9 @@ public class RelatorioService {
 				break;
 			case 2:
 				buscarFuncionarioNomeSalarioMaiorDataContratacao(scanner);
+				break;
+			case 3:
+				buscarFuncionarioDataContratacaoMaior(scanner);
 				break;
 			default:
 				system = false;
@@ -69,6 +73,18 @@ public class RelatorioService {
 		List<Funcionario> funcionarios = funcionarioRepository
 				.findNomeSalarioMaiorDataContratacao(
 						nome, salario, LocalDate.parse(dataContratacao, formatter));
+
+		funcionarios.forEach(System.out::println);
+
+	}
+
+	public void buscarFuncionarioDataContratacaoMaior(Scanner scanner) {
+
+		System.out.println("Data de contração do funcionário: ");
+		String dataContratacao = scanner.next();
+
+		List<Funcionario> funcionarios = funcionarioRepository
+				.findDataContratacaoMaior(LocalDate.parse(dataContratacao, formatter));
 
 		funcionarios.forEach(System.out::println);
 
