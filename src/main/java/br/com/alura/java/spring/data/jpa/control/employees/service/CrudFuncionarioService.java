@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.com.alura.java.spring.data.jpa.control.employees.orm.Funcionario;
@@ -50,7 +54,7 @@ public class CrudFuncionarioService {
 				atualizar(scanner);
 				break;
 			case 3:
-				visualizar();
+				visualizar(scanner);
 				break;
 			case 4:
 				deletar(scanner);
@@ -128,9 +132,18 @@ public class CrudFuncionarioService {
 
 	}
 
-	private void visualizar() {
+	private void visualizar(Scanner scanner) {
 
-		Iterable<Funcionario> funcionarios = funcionarioRepository.findAll();
+		System.out.println("Qual página deseja visualizar? ");
+		Integer pagina = scanner.nextInt();
+
+		Pageable pageable = PageRequest.of(pagina, 1, Sort.unsorted());
+
+		Page<Funcionario> funcionarios = funcionarioRepository.findAll(pageable);
+
+		System.out.println("Páginas: " + funcionarios);
+		System.out.println("Página atual: " + funcionarios.getNumber());
+		System.out.println("Itens: " + funcionarios.getTotalElements());
 
 		funcionarios.forEach(funcionario -> System.out.println(funcionario));
 
